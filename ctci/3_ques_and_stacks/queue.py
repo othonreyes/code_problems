@@ -34,7 +34,7 @@ class Queue:
   def is_empty(self):
     return self.first is None
 
-def print_queue(queue):
+def print_queue(queue, msg=''):
   r = []
   n = queue.first
   while n is not None:    
@@ -43,7 +43,7 @@ def print_queue(queue):
   t = ''
   for i in reversed(r):
     t+=i+','
-  print('[',t[:-1],']')
+  print(msg,' ','[',t[:-1],']')
 
 
 
