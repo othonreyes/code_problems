@@ -5,9 +5,7 @@ Implement three stacks using just one arrary
 from stack import StackEmptyError, StackFullError
 
 def array_of_size(size):
-  array = []
-  for _ in range(size):
-    array.append(None)
+  array = [None] * size
   return array
 
 class FixedSizeStack:
