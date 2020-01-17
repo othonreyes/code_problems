@@ -75,7 +75,7 @@ def oneAway2(s1,s2):
 
 def one_replaced(s1, s2):
   edited = False
-  for c1,c2 in zip(s1,s2):
+  for c1,c2 in zip(s1,s2): # The zip() function takes iterables (can be zero or more), aggregates them in a tuple, and return it.
     if c1 != c2:
       if edited:
         return False
