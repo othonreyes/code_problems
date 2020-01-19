@@ -67,6 +67,7 @@ def extract_min(root):
   # swap it
   value = root.value
   parent = node.parent
+  #  remove the node
   if parent is not None:
     root.value = node.value
     if parent.left is not None and parent.left.value == root.value:

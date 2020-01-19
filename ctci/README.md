@@ -1,6 +1,5 @@
 ## TODO:
-- 2.1
-- 2.2
-- 2.3
-- 2.4
-- 2.8 
+### Common tree questions:
+- Find the max level of a tree
+- Binary tree: Find which side is deeper than the other
+- Binary tree: Print the elements of a tree starting from the bottom
