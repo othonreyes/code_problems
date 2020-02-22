@@ -134,6 +134,45 @@ def make_incomplete_tree():
   root.right.right = Node(8)
   return root
 
+def deepest_level(node, level = 0):
+  if not node:
+    return level
+  return max(deepest_level(node.left, level+1), deepest_level(node.right, level+1))
+
+def print_from_bottom(node):
+  """
+  Print a tree from the bottom to the top
+  """
+  max_level = deepest_level(node)
+  for i in reversed(range(1, max_level + 1)):
+    print_level(node, i, 1)
+    print()
+
+def print_level(node, level, current):
+  if current == level and node:
+    print(node.value, end=",")
+    return
+  if node.left:
+    print_level(node.left, level, current + 1)
+  if node.right:
+    print_level(node.right, level, current + 1)
+
+def h_in_order(node):
+  max_level = deepest_level(node)
+  
+  n = None
+  nodes = [node]
+  for i in range(max_level):
+    children = []
+    while nodes:         
+      n = nodes.pop(0)
+      print(" " * (max_level - i), n.value, end="")
+      children.append(n.left)
+      children.append(n.right)
+    nodes = children
+    print()
+
+
 if __name__ == "__main__":
   root = insert(None, 27)  
   insert(root, 14)
@@ -154,3 +193,6 @@ if __name__ == "__main__":
   print("Root should NOT be a full tree ", isFullTree(make_complete_tree()))
   print("Root should be a full tree ", isFullTree(make_complete_tree_and_full_tree()))
   print("Root should NOT be a full tree ", isFullTree(make_incomplete_tree()))
+  print("deepest_level ", deepest_level(root))
+  print_from_bottom(root)
+  h_in_order(root)
