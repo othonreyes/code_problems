@@ -99,4 +99,10 @@ print(colors(*some_colors))
 some_colors = { 'red' : 'Red', 'yellow' : True}
 print(colors(**some_colors))
 
-
+# Extending a list
+nums1 = [1,2]
+a = [].extend(nums1)
+print("List extended ", a)
+a = []
+a.extend(nums1)
+print("List extended ", a)

@@ -1,12 +1,15 @@
 vector = 0
 char = 'a'
 print('Original vector ', vector)
+
 # set the vector
 # 1 first get the position int
 charInt = ord(char)
 print(char,' ', charInt)
+
 # rest the first charcter so we don't overflow
 charInt = charInt - ord('a')
+
 # Then place a bit '1' in the given position by moving 1 'n' positions to the left. We do this by doing an 'OR' operation
 vector = (1<<charInt)
 print('Final vector ', vector)

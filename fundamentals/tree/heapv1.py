@@ -21,7 +21,7 @@ consoleHandler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(m
 log.addHandler(consoleHandler)
 
 
-def heapify(items):
+def heapify_array_to_tree(items):
   assert len(items) > 0
 
   node = NodeHeap(items[0], 0)
@@ -103,6 +103,39 @@ def max_heapify_tree(items):
         n = parent
   return root
 
+def max_heap_insert_tree(root: NodeHeap, i:int, data: int) -> None:
+  # find the parent with the left most child empty
+  children = [root]
+  parent = None
+  while children and not parent:
+    n = children.pop(0)
+    if not n.left or not n.right:
+      parent = n
+      break
+    if n.left:
+      children.append(n.left)
+    if n.right:
+      children.append(n.left)
+  
+  # add the node to left if available otherwise to the right
+  log.info("Top left node {} ".format(parent.data))
+  node = NodeHeap(data, i, parent)
+  if not parent.left:
+    parent.left = node
+  else:
+    parent.right = node
+
+  # validate that the max heap is consistent
+  while node.parent:
+    parent = node.parent
+    if parent.data > node.data:
+      break
+    else:
+      # swap values
+      parent.data, node.data = node.data, parent.data
+      node = parent 
+
+
 def max_heapify_array(items):
   n = len(items)
   start = n//2 - 1
@@ -126,18 +159,50 @@ def max_heapify_array2(arr, n, i):
 
 if __name__ == "__main__":
   items = [1,12,9,5,6,10, 13 ,8 ,59, 63, 45]
-  root = heapify(items)
+  root = heapify_array_to_tree(items)
   inOrderTraversal(root)
   i = 2
   search_i(root, i)
   log.info("Parent: (i-1)/2=%d",  items[(i-1)//2])
   log.info("left child: 2i+1=%d",  items[ 2 * i + 1])
   log.info("right child: 2i+2=%d",  items[ 2 * i + 2])
+
   max_heap_tree = max_heapify_tree(items)
   inOrderTraversal(max_heap_tree)
+  
+  #### creates a max heap for an array
   items2 = [1,12,9,5,6,10, 13 ,8 ,59, 63, 45]
   log.info(items2)
   max_heapify_array(items2)
   log.info(items2)
-  root2 = heapify(items2)
+  
+  # creates a heap for an array 
+  root2 = heapify_array_to_tree(items2)
   inOrderTraversal(root2)
+
+  #### inserts a node to a max_heap array
+  items2.append(90)
+  log.info(items2)
+  n2 = len(items2)
+
+  parent = (n2-1) // 2
+  log.info("parent: {}, n2 = {}".format(parent, n2))
+  max_heapify_array2(items2, n2, parent)
+  log.info(items2)
+
+  parent = (5-1) // 2
+  log.info("parent: {}, n2 = {}".format(parent, n2))
+  max_heapify_array2(items2, n2, parent)
+  log.info(items2)
+
+  parent = (2-1) // 2
+  log.info("parent: {}, n2 = {}".format(parent, n2))
+  max_heapify_array2(items2, n2, parent)
+  log.info(items2)
+
+  root2 = heapify_array_to_tree(items2)
+  inOrderTraversal(root2)
+  #### inserts a node to a tree heap
+  log.info("inserts a node to a tree heap")
+  max_heap_insert_tree(max_heap_tree, len(items), 90)
+  inOrderTraversal(max_heap_tree)
