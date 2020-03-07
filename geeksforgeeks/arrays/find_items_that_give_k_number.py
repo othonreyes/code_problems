@@ -45,7 +45,8 @@ def find_pair(items:[int], k:int)->[int]:
 # Would work if the array were a sorted array not a absolute sorted array
 def find_pair_two_pointer(items:[int], k:int)->[int]:
   n = len(items)
-  i, j = 0, n-1  
+  i = 0
+  j = n-1  
   while i < n and j >= 0:
     d = items[i] + items[j]
     if d == k:

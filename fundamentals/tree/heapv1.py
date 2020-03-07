@@ -155,7 +155,89 @@ def max_heapify_array2(arr, n, i):
     arr[largest], arr[i] = arr[i], arr[largest]
     max_heapify_array2(arr, n, largest)
 
+def extact_value_array(items:[int]) -> int:
+  n = len(items)
+  value = items[0]
+  log.info("Value extracted {} and replacement {}".format(value, items[n-1]))
+  items[0] = items[n-1]
+  del items[-1]
 
+  n = len(items)
+  l = 0 
+  r = 0
+  largest = 0
+  i = 0 # value that we want to bubble down
+  while i < n:
+    l = i * 2 + 1
+    r = i * 2 + 2
+    largest = i
+    if l < n  and items[l] > items[largest] :
+      largest = l
+    if r < n  and items[r] > items[largest] :
+      largest = r
+    if largest != i:
+      items[largest], items[i] = items[i], items[largest]
+      i = largest
+    else:
+      break
+  return value
+
+def isLeaf(node:NodeHeap) -> bool:
+  if not node.left and not node.right:
+    return True
+  return False
+
+def hasChildren(node:NodeHeap) -> bool:
+  return True if node.left or node.right else False
+
+def extact_value_tree(root:NodeHeap) -> int:
+  # find the left most parent
+  children = [root]
+  
+  n = root
+  while True :    
+    if not n.left and not n.right:
+      break
+    if not n.right:
+      n = n.left
+    else: #both nodes exists
+      if not hasChildren(n.left) and not hasChildren(n.right):
+        n = n.right
+      elif hasChildren(n.right): # right has children
+        n = n.right
+      else:
+        n = n.left
+  log.info("Last value {}, parent value {}", n.data, n.parent.data)  
+  
+  # replace the value
+  value = root.data
+  root.data = n.data
+
+  # remove the value
+  parent = n.parent
+  if parent.left and parent.left.data == n.data:
+    del parent.left
+  else:
+    del parent.right
+  del n
+
+  # bubble down the value
+  n = root
+  while n.left or n.right:
+    left: NodeHeap = n.left
+    right: NodeHeap = n.right
+    if left and right and \
+      left.data > right.data :
+      if left.data > n.data:
+        left.data, n.data = n.data, left.data
+        n = left
+      else: 
+        right.data, n.data = n.data, right.data
+        n = right
+    elif left and left.data > n.data:
+      left.data, n.data = n.data, left.data
+      n = left
+  return value
 
 if __name__ == "__main__":
   items = [1,12,9,5,6,10, 13 ,8 ,59, 63, 45]
@@ -205,4 +287,19 @@ if __name__ == "__main__":
   #### inserts a node to a tree heap
   log.info("inserts a node to a tree heap")
   max_heap_insert_tree(max_heap_tree, len(items), 90)
+  inOrderTraversal(max_heap_tree)
+
+  #### extract the max value from an array
+  print('-' * 100)
+  print('extract the max value from an array')  
+  inOrderTraversal(heapify_array_to_tree(items2))
+  value = extact_value_array(items2)
+  print('extract the max value ', value)  
+  inOrderTraversal(heapify_array_to_tree(items2))
+
+  print('.' * 100)
+  print('extract the max value from a tree')  
+  inOrderTraversal(max_heap_tree)
+  value = extact_value_tree(max_heap_tree)
+  print('extract the max value ', value)  
   inOrderTraversal(max_heap_tree)
