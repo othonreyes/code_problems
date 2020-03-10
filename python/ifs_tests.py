@@ -1,30 +1,5 @@
 import time;
 
-list = None
-if list:
-  print("None lists shouldn't be printed")
-
-if not list:
-  print("None lists should be printed when negated")
-
-
-list = []
-if list:
-  print("empty lists shouldn't be printed")
-
-list = [2]
-if list:
-  print("lists with items should be printed")
-
-list = [2,3,4,5]
-while list:
-  val = list.pop(0)
-  print("popping first element ", val)
-
-list = [2,3,4,5]
-while list:
-  val = list.pop()
-  print("popping last element", val)
 
 class MyTree:
   __private_variable = None

@@ -28,3 +28,4 @@ for i in valid:
 tupleOfOne = (['a'])
 print(type(tupleOfOne)) # Prints <class 'list'> meaning is not a tuple even when it is declared as a tuple
 print(type(tupleOfOne[0])) # Prints <class 'str'> which is the first element of the list
+

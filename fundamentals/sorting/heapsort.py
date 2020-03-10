@@ -3,7 +3,7 @@ Sort algorith using heap sort
 Best: nlog(n)
 Worst: nlog(n)
 Average: nlog(n)
-Space: O(1) 
+Space: O(1) git a
 """
 import logging 
 log = logging.getLogger('Console')
