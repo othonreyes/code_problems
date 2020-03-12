@@ -4,7 +4,7 @@ class Node:
     self.left = None
     self.right = None
 
-def insert(root, value):
+def insert(root, value) -> Node:
   if not root:
     root = Node(value)
     return root  
@@ -158,6 +158,11 @@ def print_level(node, level, current):
     print_level(node.right, level, current + 1)
 
 def h_in_order(node):
+  """
+  TODO:
+  - don't add padding to the bottom left node
+  - less padding on bottom node
+  """
   max_level = deepest_level(node)
   
   n = None
@@ -166,12 +171,47 @@ def h_in_order(node):
     children = []
     while nodes:         
       n = nodes.pop(0)
-      print(" " * (max_level - i), n.value, end="")
+      print("  " * (max_level - i), n.value, end="")
       children.append(n.left)
       children.append(n.right)
     nodes = children
     print()
 
+def check_tree_is_bst(node: Node)->bool:
+  """
+  Naive approch that doesn't work
+  https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+  """
+  if not node:
+    return False
+  if not node.left and not node.right:
+    return True  
+  check_left = True
+  if node.left and node.left.value < node.value:    
+    check_left = check_tree_is_bst(node.left)
+  else: 
+    return False
+  check_right = True
+  if node.right and node.right.value > node.value:
+    check_right = check_tree_is_bst(node.right)
+  else: 
+    return False
+  return check_left and check_right
+
+# def check_tree_is_bst2(node: Node, biggest = 0, smallest = 0)->bool:
+#   """
+#   Naive approch that doesn't work
+#   https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+#   """
+#   if not node:
+#     return True
+#   if node.left and biggest > node.value:
+#     return False
+#   if node.right and node.right.value < node.value:
+#     return False
+#   if not check_tree_is_bst(node.left, max(biggest, node.value)) or not check_tree_is_bst(node.right)
+#     return False
+#   return True
 
 if __name__ == "__main__":
   root = insert(None, 27)  
@@ -196,3 +236,101 @@ if __name__ == "__main__":
   print("deepest_level ", deepest_level(root))
   print_from_bottom(root)
   h_in_order(root)
+  print("check_tree_is_bst ", check_tree_is_bst(root))  
+  
+  root = Node(3)
+  root.left = Node(2)
+  root.left.right = Node(4)
+  root.left.left = Node(1)
+  root.right = Node(8)
+  root.right.left = Node(6)
+  root.right.right = Node(9)
+  print("check_tree_is_bst ", check_tree_is_bst(root)) # True -> This is wrong
+
+    
+  # global variable prev - to keep track 
+  # of previous node during Inorder  
+  # traversal 
+  prev = None
+    
+  # function to check if given binary 
+  # tree is BST 
+  def isbst(root): 
+        
+      # prev is a global variable 
+      global prev 
+      prev = None
+      return isbst_rec(root) 
+    
+    
+  # Helper function to test if binary 
+  # tree is BST 
+  # Traverse the tree in inorder fashion  
+  # and keep track of previous node 
+  # return true if tree is Binary  
+  # search tree otherwise false 
+  def isbst_rec(root): 
+        
+      # prev is a global variable 
+      global prev  
+    
+      # if tree is empty return true 
+      if root is None: 
+          return True
+    
+      if isbst_rec(root.left) is False: 
+          return False
+    
+      # if previous node'data is found  
+      # greater than the current node's 
+      # data return fals 
+      if prev is not None and prev.value > root.value: 
+          return False
+    
+      # store the current node in prev 
+      prev = root 
+      return isbst_rec(root.right) 
+    
+  
+  # driver code to test above function 
+  root = Node(3) 
+  root.left = Node(2) 
+  root.right = Node(5) 
+  root.left.left = Node(1) 
+  root.left.right = Node(4) 
+    
+  if isbst(root): 
+      print("is BST") 
+  else: 
+      print("not a BST") 
+  
+
+  INT_MAX = 4294967296
+  INT_MIN = -4294967296
+    
+
+  # Returns true if the given tree is a binary search tree 
+  # (efficient version) 
+  def isBST(node): 
+      return (isBSTUtil(node, INT_MIN, INT_MAX)) 
+    
+  # Retusn true if the given tree is a BST and its values 
+  # >= min and <= max 
+  def isBSTUtil(node, mini, maxi): 
+    # An empty tree is BST 
+    if node is None: 
+        return True
+
+    # False if this node violates min/max constraint 
+    if node.value < mini or node.value > maxi: 
+        return False
+
+    # Otherwise check the subtrees recursively 
+    # tightening the min or max constraint 
+    return (isBSTUtil(node.left, mini, node.value ) and
+          isBSTUtil(node.right, node.value, maxi)) 
+
+  if isBST(root): 
+    print("is BST") 
+  else: 
+    print("not a BST") 

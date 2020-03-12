@@ -100,4 +100,3 @@ if __name__ == "__main__":
   graph.reset()
   log.info("." *10)  
   bfs(graph)
-                         
