@@ -33,3 +33,7 @@ for key, value in my_dict.items():
 # erase an item
 del my_dict["k1"]
 print("dict without k1 ", my_dict)
+
+# Initializing a dic using list comprehension
+dist = dict([ (str(i), 1000) for i in range(5)])
+print("dict without k1 ", dist)

@@ -60,3 +60,8 @@ print(var)
 matrix = [[0 for i in range(vertixes)] for j in range(vertixes)]
 matrix[0][0] = 1
 print(matrix)
+
+
+# List with tuples initialized with list comprehension
+dist = [ (str(i), 1000) for i in range(5)]
+print(dist)
