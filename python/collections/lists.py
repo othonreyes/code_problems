@@ -43,3 +43,20 @@ list.append(None)
 while list:
   val = list.pop(0)
   print("popping last element", val)
+
+
+# Nested matrixes
+## Using multiplier / Wrong way
+vertixes = 4
+matrix = [[0] * vertixes] * vertixes
+print(matrix)
+## assign a value to the matrix
+matrix[0][0] = 1
+print(matrix)
+## read a value from the matrix
+var = matrix[0][0]
+print(var)
+## Using the right way with list comprehension
+matrix = [[0 for i in range(vertixes)] for j in range(vertixes)]
+matrix[0][0] = 1
+print(matrix)

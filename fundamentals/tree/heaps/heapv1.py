@@ -201,7 +201,8 @@ def extact_value_tree(root:NodeHeap) -> int:
     if not n.right:
       n = n.left
     else: #both nodes exists
-      if not hasChildren(n.left) and not hasChildren(n.right):
+      # get the right most node
+      if not hasChildren(n.left) and not hasChildren(n.right): 
         n = n.right
       elif hasChildren(n.right): # right has children
         n = n.right

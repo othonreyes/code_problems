@@ -1,5 +1,6 @@
 # Things to learn
 ## Basics
+- modules
 - Lists, sets, dicts common operations
 - lambdas
 - Classes: methods and properties, scope, visibility, static methods
@@ -11,7 +12,7 @@
 
 ## Idioms of the language
 - comprehension
-- decorators
+- ~~decorators~~
 - function of other functions
 
 ## Other

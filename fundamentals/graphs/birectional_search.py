@@ -67,7 +67,8 @@ def print_nodes(s_parent, t_parent, source, target, intersection):
     path.append(t_parent[i])
     i = t_parent[i]
   
-  print(",".join(path))
+  print(path)
+  print(",".join([str(x) for x in path ]))
 
 
 def bidirectional(graph:Graph, source:int, target:int):
@@ -87,7 +88,7 @@ def bidirectional(graph:Graph, source:int, target:int):
     bfs(s_queue, s_parent, s_visited)
     bfs(t_queue, t_parent, t_visited)
     intersection = isIntersection(s_visited, t_visited)    
-    if intersection:      
+    if intersection != -1:      
       # There is a result
       print_nodes(s_parent, t_parent, source, target, intersection)
       return
