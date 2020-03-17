@@ -45,6 +45,10 @@ class Graph:
         weight = nodeTuple[1] # second element is the weight
         self.weights[key][nodeTuple[0]] = weight
 
+  def V(self) -> int:
+    return len(self.nodes)
+
+
   def reset(self):
     for n in self.nodes:
       n.visited = False

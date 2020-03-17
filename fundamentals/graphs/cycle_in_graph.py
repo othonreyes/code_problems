@@ -1,3 +1,7 @@
+"""
+https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
+Detect Cycle in a Directed Graph
+"""
 from graph_common import *
 
 maxint = 999999
