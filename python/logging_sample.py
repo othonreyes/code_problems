@@ -26,7 +26,7 @@ if __name__ == "__main__":
   log.removeHandler(consoleHandler)
   
   print("Try to find the handler using a lambdas")
-  ch = filter(lambda h: isinstance(i,logging.StreamHandler), log.handlers)
+  ch = filter(lambda h: isinstance(h,logging.StreamHandler), log.handlers)
   print(ch)
   for i in ch:
     print(i)
