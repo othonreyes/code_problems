@@ -9,7 +9,7 @@
     - extracts a value
 """
 
-from common import NodeHeap, inOrderTraversal
+from ..common import NodeHeap, inOrderTraversal
 import logging 
 
 log = logging.getLogger('Console')

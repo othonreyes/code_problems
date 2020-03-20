@@ -51,7 +51,6 @@ def isCompleteTree(root):
       nodes.append(n.right)
   return True
 
-
 def checkNodeCompleteTree(root):
   if not root:
     return True
