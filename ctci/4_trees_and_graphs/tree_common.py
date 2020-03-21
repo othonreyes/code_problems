@@ -20,9 +20,10 @@ if not consoleHandler:
 
 
 class Node:
-  def __init__(self, data):
+  def __init__(self, data, parent = None):
     self.left = None
     self.right = None
+    self.parent = parent
     self.data = data
 
 class NodeHeap:
@@ -66,3 +67,26 @@ def postOrderTraversal(node, level = 0):
 
 def visit(node, level, left = True):
   log.info("{}{}".format('  ' * level, node.data))
+
+
+def insert(root:Node, value: int)->Node:
+  if not root:
+    return Node(value)
+
+  n = root
+  while True:
+    if value < n.data:
+      if n.left:
+        n = n.left
+      else:
+        n.left = Node(value, n)
+        return n.left
+    else:
+      if n.right:
+        n = n.right
+      else:
+        n.right = Node(value, n)
+        return n.right
+
+
+
