@@ -1,5 +1,6 @@
 import unittest
 
+
 class Node:
   n = None
   data = None
