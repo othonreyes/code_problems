@@ -19,7 +19,7 @@ if not consoleHandler:
 
 
 
-class Node:
+class TreeNode:
   def __init__(self, data, parent = None):
     self.left = None
     self.right = None
@@ -69,9 +69,9 @@ def visit(node, level, left = True):
   log.info("{}{}".format('  ' * level, node.data))
 
 
-def insert(root:Node, value: int)->Node:
+def insert(root:TreeNode, value: int)->TreeNode:
   if not root:
-    return Node(value)
+    return TreeNode(value)
 
   n = root
   while True:
@@ -79,13 +79,13 @@ def insert(root:Node, value: int)->Node:
       if n.left:
         n = n.left
       else:
-        n.left = Node(value, n)
+        n.left = TreeNode(value, n)
         return n.left
     else:
       if n.right:
         n = n.right
       else:
-        n.right = Node(value, n)
+        n.right = TreeNode(value, n)
         return n.right
 
 

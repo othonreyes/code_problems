@@ -4,22 +4,10 @@ Find the next value in a BST
 
 from tree_common import * 
 
-"""
-Verify that a tree is a BST
-"""
 minint = -9999999
 maxint = 9999999
 
-def is_bst(n:Node, min = minint, max = maxint) -> bool:
-  if not n:
-    return True
-  if n.data < min or n.data > max:
-    return False
-  return is_bst(n.left, min, n.data) and \
-    is_bst(n.right, n.data, max)
-
-
-def succesor(root:Node):
+def succesor(root:TreeNode):
   if not root:
     return None
 
@@ -37,6 +25,29 @@ def succesor(root:Node):
     if n.right:
       queue.append(n.right)
   return None
+
+def left_most_node(n:TreeNode):  
+  if not n:
+    return None
+  
+  while n.left:
+    n = n.left
+  return n
+
+def sucessor_2(root:TreeNode):
+  if not root:
+    return None
+  if root.right:
+    return left_most_node(root.right)
+  else:
+     q = root
+     p = q.parent
+     while p and p.left is not q:
+       q = p
+       p = p.parent
+     return p
+
+
 ### not tested
 if __name__ == "__main__":
   root = insert(None, 4)
