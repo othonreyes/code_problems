@@ -65,3 +65,20 @@ print(matrix)
 # List with tuples initialized with list comprehension
 dist = [ (str(i), 1000) for i in range(5)]
 print(dist)
+
+n = 1
+r = []
+for i in range(1, n):
+    print(i)
+    if i % 3 == 0 and i % 5 == 0:
+        r.append("FizzBuzz")
+        continue
+    if i % 3  == 0:
+        r.append("Fizz")
+        continue
+    if i % 5 == 0:
+        r.append("Buzz")
+        continue
+    r.append(str(i))
+
+print(r)

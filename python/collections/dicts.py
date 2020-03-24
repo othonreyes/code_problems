@@ -37,3 +37,32 @@ print("dict without k1 ", my_dict)
 # Initializing a dic using list comprehension
 dist = dict([ (str(i), 1000) for i in range(5)])
 print("dict without k1 ", dist)
+
+# dict to list
+## verbose way
+a = []
+for i,j in dist.items():
+  a.append(i + "-" + str(j) )
+print(",".join(a))
+
+## idiomatic way
+a = [ k +" " + str(dist[k]) for k in dist.keys() ]
+print(",".join(a))
+
+# list to dict
+a = [1,2,3]
+
+## verbose way
+dist = {}
+for i in a:
+  dist[i] = i
+print(dist)
+
+## dict comprehension
+dist = {x: x for x in a}
+print(dist)
+
+
+cpdomains = ["9001 discuss.leetcode.com"]
+domains = {j[1]:j[0] for j in [i.split(" ") for i in cpdomains] }
+print(domains)

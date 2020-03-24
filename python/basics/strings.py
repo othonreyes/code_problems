@@ -9,6 +9,12 @@ print("The first occurrence of the letter a = %d" % s.index("!"))
 print("t occurs %d times" % s.count("t"))
 
 # Slicing the string into bits
+s1 = "hello world"
+print(s1[:1]) # splicing is exclusive
+print("|",s1[:s1.index(" ")],"|", sep="") # splicing is exclusive
+print("|",s1[s1.index(" "):s1.index(" ")],"|", sep="") # splicing is exclusive
+print("|",s1[s1.index(" ") + 1:],"|", sep="") # splicing is exclusive
+
 print("The first five characters are '%s'" % s[:5]) # Start to 5
 print("The next five characters are '%s'" % s[5:10]) # 5 to 10
 print("The thirteenth character is '%s'" % s[12]) # Just number 12
@@ -31,3 +37,7 @@ print("String ends with 'ome!'.!", s.endswith("ome!"))
 
 # Split
 print("Split the words of the string: %s" % s.split(" "))
+
+# Check ranges
+x = 'b'
+print('a' <= x <= 'z')
