@@ -51,6 +51,13 @@ def deepest_level(node):
   else:
     return right_level
 
+def deepest_level2(node):
+  if node is None:
+    return 0
+  left_level = deepest_level(node.left) 
+  right_level = deepest_level(node.right)
+  return max(left_level, right_level) + 1
+
 def inOrderTraversal(node, level = 0):
   if node is not None:
     inOrderTraversal(node.left, level + 1)
