@@ -4,22 +4,29 @@
 ### Todo
 
 - [ ] Java compare  
+- [ ] Java collections
 - [ ] Char methods  
 - [ ] Python: append all in a list  
 - [ ] 4.11 ctci  
-- [ ] lru cache  
-- [ ] Lists, sets, dicts common operations  
-- [ ] lambdas, sorting  
-- [ ] Classes: methods and properties, scope, visibility, static methods  
-- [ ] Polymorphism and inheritance  
-- [ ] Error handling  
-- [ ] dates and times  
-- [ ] generics  
-- [ ] comprehension  
-- [ ] function of other functions  
-- [ ] i/o  
-- [ ] multithreading  
-- [ ] testing  
+- [ ] lru cache
+- [ ] greedy
+- [ ] divide and conquer
+- [ ] Mergesort 
+- [ ] quicksort
+- [ ] Python: Lists, sets, dicts common operations  
+- [ ] Python: lambdas, sorting  
+- [ ] Python: enumerate 
+- [ ] Python: OrderedMAp, Counter, PriorityQueue
+- [ ] Python: Classes: methods and properties, scope, visibility, static methods  
+- [ ] Python: Polymorphism and inheritance  
+- [ ] Python: Error handling  
+- [ ] Python: dates and times  
+- [ ] Python: generics  
+- [ ] Python: comprehension  
+- [ ] Python: function of other functions  
+- [ ] Python: i/o  
+- [ ] Python: multithreading  
+- [ ] Python: testing  
 
 ### In Progress
 
