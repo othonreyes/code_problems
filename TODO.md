@@ -13,6 +13,7 @@
 - [ ] divide and conquer
 - [ ] Mergesort 
 - [ ] quicksort
+- [ ] Topological sorting
 - [ ] Python: Lists, sets, dicts common operations  
 - [ ] Python: lambdas, sorting  
 - [ ] Python: enumerate 
