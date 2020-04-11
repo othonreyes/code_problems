@@ -4,7 +4,6 @@
 ### Todo
 
 - [ ] Java collections  
-- [ ] 4.11 ctci  
 - [ ] greedy  
 - [ ] divide and conquer  
 - [ ] Mergesort  
@@ -26,6 +25,7 @@
 - [ ] Python: i/o  
 - [ ] Python: multithreading  
 - [ ] Python: testing  
+- [ ] 4.11 ctci  
 
 ### In Progress
 
@@ -55,4 +55,5 @@
 - [x] 4.12 ctci  
 - [x] Java compare  
 - [x] Python: append all in a list: list.copy | list.extend  
+- [x] Java Priority Queue  
 
