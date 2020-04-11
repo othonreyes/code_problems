@@ -20,7 +20,7 @@ def in_order_bst(root):
     return True
   if not in_order_bst(root):
     return False
-  if not last_value None and last_value > root.value:
+  if last_value and last_value > root.value:
     return False
   last_value = root.value
   if not in_order_bst(root.right):

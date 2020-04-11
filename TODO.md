@@ -3,21 +3,19 @@
 
 ### Todo
 
-- [ ] Java compare  
-- [ ] Java collections
-- [ ] Char methods  
-- [ ] Python: append all in a list  
+- [ ] Java collections  
 - [ ] 4.11 ctci  
-- [ ] lru cache
-- [ ] greedy
-- [ ] divide and conquer
-- [ ] Mergesort 
-- [ ] quicksort
-- [ ] Topological sorting
+- [ ] greedy  
+- [ ] divide and conquer  
+- [ ] Mergesort  
+- [ ] quicksort  
+- [ ] Topological sorting  
+- [ ] DP: 8.5 Multiply  
 - [ ] Python: Lists, sets, dicts common operations  
+- [ ] DP: Knapsack  
+- [ ] --------------------------------  
 - [ ] Python: lambdas, sorting  
-- [ ] Python: enumerate 
-- [ ] Python: OrderedMAp, Counter, PriorityQueue
+- [ ] Python: OrderedMAp, Counter, PriorityQueue  
 - [ ] Python: Classes: methods and properties, scope, visibility, static methods  
 - [ ] Python: Polymorphism and inheritance  
 - [ ] Python: Error handling  
@@ -31,10 +29,10 @@
 
 ### In Progress
 
-- [ ] 4.12 ctci  
 
 ### Done ✓
 
+- [x] Char methods  
 - [x] 4.3 BST  
 - [x] 4.6 algorithm  
 - [x] 4.5 in order  
@@ -52,4 +50,9 @@
 - [x] modules  
 - [x] full tree  
 - [x] complete treee?  
+- [x] Python: enumerate  
+- [x] lru cache  
+- [x] 4.12 ctci  
+- [x] Java compare  
+- [x] Python: append all in a list: list.copy | list.extend  
 
