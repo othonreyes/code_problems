@@ -10,3 +10,6 @@ my_set.add(2)
 print(my_set)
 if 2 in my_set:
   print('set has a 2')
+
+# not possible -> gives error
+#print('set has a ', my_set.get(2))

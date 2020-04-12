@@ -28,7 +28,7 @@ def dijkstra(g: Graph, source: int):
     # in the shortest path
     u = minDistance(stpSet, dist, g)
 
-    # 4. add the node to the shortes path
+    # 4. add the node to the shortest path
     stpSet[u] = True
 
     #Update the distance for the adjacent nodes of u only 
@@ -37,7 +37,7 @@ def dijkstra(g: Graph, source: int):
     # AND the vertex is not in the shotest path tree 
     node_u = g.nodes[u]
     for node_v in node_u.adjacent:
-      v = node_v.value      
+      v = node_v.value
       if stpSet[v] == False and \
         dist[v] > dist[u] + g.weights[u][v]:
         dist[v] = dist[u] + g.weights[u][v]
