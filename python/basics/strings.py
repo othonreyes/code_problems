@@ -41,3 +41,8 @@ print("Split the words of the string: %s" % s.split(" "))
 # Check ranges
 x = 'b'
 print('a' <= x <= 'z')
+
+word_squares = ["ball", "area", "able", "lead", "lady"]
+step = 1
+prefix = ''.join([word[step] for word in word_squares])
+print("prefix ", prefix)

@@ -18,7 +18,7 @@ def robot_grid_rec(grid, n, m, mem):
   return mem[n][m]
 
 
-def robot_grid_td(grid):
+def robot_grid_bu(grid):
   n = len(grid)
   m = len(grid[0])
   mem = [[999 for _ in range(m + 1)] for _ in range(n + 1)]
