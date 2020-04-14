@@ -18,7 +18,6 @@ def find_len(dist:List[Tuple[int, int]], stp:List[bool]) -> int:
   return n
 
 def min_heap(dist:List[Tuple[int, int]], stp:List[bool], n:int):
-  # n = find_len(dist, stp)
   start = n // 2 - 1
   for i in reversed(range(start + 1)):
     heapify(dist, n, i)
