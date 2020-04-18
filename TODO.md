@@ -13,7 +13,6 @@
 - [ ] Python: Lists, sets, dicts common operations  
 - [ ] DP: Knapsack  
 - [ ] --------------------------------  
-- [ ] Python: lambdas, sorting  
 - [ ] Python: OrderedMAp, Counter, PriorityQueue  
 - [ ] Python: Classes: methods and properties, scope, visibility, static methods  
 - [ ] Python: Polymorphism and inheritance  
@@ -26,12 +25,14 @@
 - [ ] Python: multithreading  
 - [ ] Python: testing  
 - [ ] 4.11 ctci  
+- [ ] Python. Optimal way to remove an element from a list and then add it back  
 
 ### In Progress
 
 
 ### Done ✓
 
+- [x] Python: lambdas, sorting  
 - [x] Char methods  
 - [x] 4.3 BST  
 - [x] 4.6 algorithm  
