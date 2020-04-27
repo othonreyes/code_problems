@@ -70,10 +70,10 @@ public class BSTSequences {
         }
 
         T headFrist = left.removeFirst();
-        prefix.addLast(headFrist); // why?
+        prefix.addLast(headFrist); // basically is append it to the end of the resuling prefix
         weaveNodes(left, right, results, prefix);
-        prefix.removeLast();
-        left.addFirst(headFrist);
+        prefix.removeLast(); // backtracking
+        left.addFirst(headFrist); // restore the list as it was
 
         T headSecond = right.removeFirst();
         prefix.addLast(headSecond); // why?

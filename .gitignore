@@ -134,3 +134,8 @@ dmypy.json
 
 # Vscode
 .vscode
+
+# Intellij
+java/InterviewPreparation/out/
+java/InterviewPreparation/.idea
+.idea/
