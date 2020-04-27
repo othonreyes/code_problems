@@ -137,5 +137,8 @@ dmypy.json
 
 # Intellij
 java/InterviewPreparation/out/
-java/InterviewPreparation/.idea
+java/InterviewPreparation/.idea/*
+java/InterviewPreparation/.idea/misc.xml
+java/InterviewPreparation/.idea/workspace.xml
 .idea/
+.gradle
