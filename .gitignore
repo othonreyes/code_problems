@@ -142,3 +142,9 @@ java/InterviewPreparation/.idea/misc.xml
 java/InterviewPreparation/.idea/workspace.xml
 .idea/
 .gradle
+
+java/InterviewPreparation/.classpath
+java/InterviewPreparation/.project
+java/InterviewPreparation/.settings/
+java/InterviewPreparation/bin/
+java/code_problems.iml
