@@ -13,7 +13,7 @@ public class CountingSort {
         log.info("{}", arr);
     }
 
-    static void countingSort(int [] arr) {
+    private static void countingSort(int [] arr) {
         // find the min and max to find the range. This is done
         // becasue if the array has negative values then
         // we can't use them as index

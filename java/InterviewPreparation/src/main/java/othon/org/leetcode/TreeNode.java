@@ -1,4 +1,4 @@
-package leetcode;
+package othon.org.leetcode;
 
 public class TreeNode {
     int val;
