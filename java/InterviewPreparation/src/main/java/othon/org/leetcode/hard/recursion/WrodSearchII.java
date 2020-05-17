@@ -4,8 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -16,11 +18,77 @@ import java.util.Set;
  */
 @Slf4j
 public class WrodSearchII {
-    public static void miain(String[] args) {
+    public static void main(String[] args) {
         Solution s = new Solution();
         var input = "";
     }
 
+
+    static class TrieSolution {
+        char[][] board;
+        List<String> result = new ArrayList<>();
+
+        static class TrieNode {
+            Map<Character, TrieNode> children = new HashMap<>();
+            String word;
+        }
+        public List<String> findWords(char[][] b, String[] words) {
+            // Convert the words to a trie
+            TrieNode root = new TrieNode();
+            for (String w: words) {
+                TrieNode n = root;
+                for (int i = 0; i < w.length(); i++) {
+                    Character c = w.charAt(i);
+                    if (!n.children.containsKey(c)) {
+                        n.children.put(c, new TrieNode());
+                    }
+                    n = n.children.get(c);
+                }
+                n.word = w;
+            }
+            this.board = b;
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    backtrack(i,j, root);
+                }
+            }
+            return result;
+        }
+
+        static int[][] directions = {{-1,0}, {1,0}, {0,1}, {0,-1}};
+
+        private void backtrack(int i, int j, TrieNode root) {
+            Character letter = board[i][j];
+            TrieNode n = root.children.get(letter);
+
+            // not a valid word
+            if (n == null) {
+                return;
+            }
+
+            // if we found a word then resolve
+            if (n != null && n.word != null) {
+                result.add(n.word);
+                n.word = null; // erase the word so we don't need to look it up again
+                //return; // commented because we want to continue searching
+            }
+            // otherwise it's time to explore
+            board[i][j] = '#'; // temporarily erase the word
+            //explore in 4 directions
+            for (int k = 0; k < directions.length; k++) {
+                int[] d = directions[k];
+                int newI = i + d[0];
+                int newJ = j + d[1];
+                if (newI<0 || newJ < 0 || i>=board.length || j >= board[0].length)
+                    continue;
+                if (n.children.containsKey(board[newI][newJ]))
+                    backtrack(newI, newJ, n);
+            }
+            //restore the word so backtracking
+            board[i][j] = letter;
+        }
+
+    }
 
     static class Solution {
         static int[][] directions = {{-1,0}, {1,0}, {0,1}, {0,-1}};

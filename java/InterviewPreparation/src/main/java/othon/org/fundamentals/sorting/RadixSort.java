@@ -9,7 +9,7 @@ public class RadixSort {
     /*Driver function to check for above function*/
     public static void main (String[] args)
     {
-        int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
+        int[] arr = SortingUtils.createUnorderedArray(20, 10000);
         int n = arr.length;
         radixsort(arr, n);
         log.info("{}", arr);

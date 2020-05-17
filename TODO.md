@@ -3,16 +3,18 @@
 
 ### Todo
 
-- [ ] Java collections  
+- [ ] Leetcode - 721 - Accounts Merge  
+- [ ] DP: 8.14 Multiply  
+- [ ] CTCI 10.7 Giga  
+- [ ] --------------------------------  
+- [ ] 4.11 ctci  
+- [ ] DP: 8.5 Multiply  
 - [ ] greedy  
 - [ ] divide and conquer  
-- [ ] Mergesort  
-- [ ] quicksort  
 - [ ] Topological sorting  
-- [ ] DP: 8.5 Multiply  
+- [ ] ***************************************************  
 - [ ] Python: Lists, sets, dicts common operations  
 - [ ] DP: Knapsack  
-- [ ] --------------------------------  
 - [ ] Python: OrderedMAp, Counter, PriorityQueue  
 - [ ] Python: Classes: methods and properties, scope, visibility, static methods  
 - [ ] Python: Polymorphism and inheritance  
@@ -24,7 +26,6 @@
 - [ ] Python: i/o  
 - [ ] Python: multithreading  
 - [ ] Python: testing  
-- [ ] 4.11 ctci  
 - [ ] Python. Optimal way to remove an element from a list and then add it back  
 
 ### In Progress
@@ -32,6 +33,10 @@
 
 ### Done ✓
 
+- [x] CTCI 10.9 sorted matrix  
+- [x] quicksort  
+- [x] Mergesort  
+- [x] Java collections  
 - [x] Python: lambdas, sorting  
 - [x] Char methods  
 - [x] 4.3 BST  

@@ -2,6 +2,8 @@ package othon.org.brushup;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.CharConversionException;
+
 @Slf4j
 public class Chars {
     public static void main(String[] args) {
@@ -15,6 +17,8 @@ public class Chars {
                     c, Character.isDigit(c), Character.isLetter(c), Character.isWhitespace(c),
                     Character.isUpperCase(c), Character.isAlphabetic(c), Character.isLetterOrDigit(c));
         }
+
+        log.info("Can you coonvert a number to lowercase {}", Character.toLowerCase('1'));
 
     }
 }

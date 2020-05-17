@@ -16,7 +16,7 @@ def count_ways(n,m, variation, possibilities):
   
   for i in (m):
     count_ways(n - i, m, variation + str(i), possibilities)
-
+######## --- --- ######## ######## --- --- ################ --- --- ########
 def coins2(n):
   m = set()
   count_ways2(n, m)
@@ -34,6 +34,7 @@ def count_ways2(n, m):
   m.add(v)
   return v
 
+######## --- --- ######## ######## --- --- ################ --- --- ########
 def coins3(n) :
   m = [1,5,10,25]
   return count_ways3(n,m, len(m) - 1)
@@ -69,7 +70,7 @@ def count_ways3_mem(n,m, index, mem):
     ways += count_ways3_mem(n - i, m, index - 1, mem)
   mem[index][n] = ways
   return ways
-
+######## --- --- ######## ######## --- --- ################ --- --- ########
 m = [1,5,10,25]
 # Works but is slow
 # substracting takes O(n) time. % will take O(1) time
@@ -85,6 +86,7 @@ def coins4(n, index):
     ways += coins4(n - i, index - 1)
   return ways
 
+######## --- --- ######## ######## --- --- ################ --- --- ########
 def coins5(n, index):
   if n == 0:
     return 1

@@ -11,7 +11,7 @@ public class SortingUtils {
         Random random = new Random();
         int[] arr = new int[size];
 
-        for (int i=0; i<20; i++) {
+        for (int i=0; i<size; i++) {
             arr[i] = random.nextInt(limit);
         }
         return arr;

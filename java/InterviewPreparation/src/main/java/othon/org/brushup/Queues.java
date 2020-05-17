@@ -1,6 +1,8 @@
 package othon.org.brushup;
 
+import java.util.ArrayDeque;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Queues {
     public static void main(String[] args) {
@@ -24,5 +26,7 @@ public class Queues {
         System.out.println(q.peek() + "-" + q.size());
         q.offer(Math.min(x, 1));
         System.out.println(q.peek() + "-" + q.size());
+
+        Queue<String> q2 = new ArrayDeque<>();
     }
 }

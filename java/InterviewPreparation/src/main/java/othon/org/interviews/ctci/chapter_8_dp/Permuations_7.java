@@ -1,4 +1,4 @@
-package othon.org.interviews.ctci.chapter_7_dp;
+package othon.org.interviews.ctci.chapter_8_dp;
 
 import java.util.ArrayList;
 import java.util.List;

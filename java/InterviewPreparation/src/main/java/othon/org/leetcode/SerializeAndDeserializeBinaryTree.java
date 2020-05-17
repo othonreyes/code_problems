@@ -39,7 +39,7 @@ public class SerializeAndDeserializeBinaryTree {
      *     TreeNode(int x) { val = x; }
      * }
      */
-    static class Codec {
+    public static class Codec {
 
         static final String NULL = "null";
         // Encodes a tree to a single string.

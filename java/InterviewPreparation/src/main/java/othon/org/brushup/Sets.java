@@ -15,6 +15,7 @@ public class Sets {
         if (set.contains(1)) {
             log.info("Hello world");
         }
+//        set.toArray(new int[set.size()]);
 
         Set<String> treeset = new TreeSet<>();
         treeset.add("bxcvb");
@@ -22,5 +23,8 @@ public class Sets {
         treeset.add("xcv");
         log.info("{}", treeset);
         treeset.stream().filter(x -> x.startsWith("a")); // returns a stream
+        //treeset.stream().
+
+
     }
 }
