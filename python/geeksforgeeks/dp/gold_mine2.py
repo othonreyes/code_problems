@@ -32,7 +32,7 @@ def gold_mine(input:List[List[int]]) -> int:
       input[i][j] = input[i][j] + \
         max(
           input[i-1][j+1] if i - 1 >= 0 and j + 1 < cols else 0, \
-          input[i][j+1] if j + 1<rows else 0, \``
+          input[i][j+1] if j + 1<rows else 0, \
           input[i+1][j+1] if i + 1 < rows and j + 1 < cols else 0
           )
       result = max(input[i][j], result)

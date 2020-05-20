@@ -6,6 +6,7 @@
 - [ ] Leetcode - 721 - Accounts Merge  
 - [ ] DP: 8.14 Multiply  
 - [ ] CTCI 10.7 Giga  
+- [ ] CTCI 10.10 Rank stream  
 - [ ] --------------------------------  
 - [ ] 4.11 ctci  
 - [ ] DP: 8.5 Multiply  
