@@ -25,6 +25,16 @@ public class Sets {
         treeset.stream().filter(x -> x.startsWith("a")); // returns a stream
         //treeset.stream().
 
+        // Can't do Arrays.asList with in[]
+//        Set<List<Integer>> set2 = new HashSet<>();
+//        int[] nums = new int [0];
+//        List<Integer> asList = Arrays.asList(nums);
+//        set2.add(asList);
 
+        Set<int[]> set3 = new HashSet<>();
+        int[] nums = {0,0};
+        set3.add(nums);
+        set3.remove(nums);
+        set3.contains(nums);
     }
 }

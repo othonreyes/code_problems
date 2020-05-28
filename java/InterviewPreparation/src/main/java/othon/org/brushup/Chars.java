@@ -20,5 +20,12 @@ public class Chars {
 
         log.info("Can you coonvert a number to lowercase {}", Character.toLowerCase('1'));
 
+        String s2 = "0";
+        int x = 0;
+        if ('1' <= s2.charAt(x) && s2.charAt(x) <= '9') {
+            log.info("WTF");
+        } else {
+            log.info("{} - {}", (int)s2.charAt(x), (int)'1');
+        }
     }
 }
