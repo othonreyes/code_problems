@@ -105,30 +105,67 @@ public class WordLadder {
 
         int bfs(String target, String node, Map<String, Set<String>> graph) {
             Set<String> visited = new HashSet<>();
-            int counter = 0;
             // TODO: (A)have a pair to keep track of the level i.e new Pair<>(node, 1)
-            Queue<String> q = new ArrayDeque<>();
-            q.offer(node);
+            Queue<Pair> q = new ArrayDeque<>();
+            q.offer(new Pair(node, 0));
+            visited.add(node);
+            int counter = Integer.MAX_VALUE;
             while (!q.isEmpty()) {
-                String n = q.poll();
-                if (n.equals(target)) {
+                Pair p =  q.poll();
+                log.info("{}-{}", p.word, p.level);
+                if (p.word.equals(target)) {
                     // TODO: (B) don't quit, keep iterating,but updated the min steps i.e. steps = Math.min(steps, node.getValue())
-                    return counter + 1;
-                }
-                if (visited.contains(n)) {
+                    counter = Math.min(counter, p.level + 1);
                     continue;
                 }
-                visited.add(n);
-                counter += 1;
-                for (String w: graph.get(n)) {
+                for (String w: graph.get(p.word)) {
                     if (visited.contains(w)) {
                         continue;
                     }
                     // TODO: (C) Offer a new Pair<>(w, node.getValue() + 1)
-                    q.offer(w);
+                    visited.add(w);
+                    q.offer(new Pair(w, p.level + 1));
                 }
             }
-            return Integer.MAX_VALUE;
+            return counter;
+        }
+
+//        int bfs(String target, String node, Map<String, Set<String>> graph) {
+//            Set<String> visited = new HashSet<>();
+//            int counter = 0;
+//            // TODO: (A)have a pair to keep track of the level i.e new Pair<>(node, 1)
+//            Queue<String> q = new ArrayDeque<>();
+//            q.offer(node);
+//            visited.add(node);
+//            while (!q.isEmpty()) {
+//                String n = q.poll();
+//                log.info("{}-{}", n, counter);
+//                if (n.equals(target)) {
+//                    // TODO: (B) don't quit, keep iterating,but updated the min steps i.e. steps = Math.min(steps, node.getValue())
+//                    return counter + 1;
+//                }
+//                counter += 1;
+//                for (String w: graph.get(n)) {
+//                    if (visited.contains(w)) {
+//                        continue;
+//                    }
+//                    // TODO: (C) Offer a new Pair<>(w, node.getValue() + 1)
+//                    visited.add(w);
+//                    q.offer(w);
+//                }
+//            }
+//            return Integer.MAX_VALUE;
+//        }
+    }
+
+
+    static class Pair {
+        String word;
+        int level;
+
+        public Pair(String word, int level) {
+            this.word = word;
+            this.level = level;
         }
     }
 }

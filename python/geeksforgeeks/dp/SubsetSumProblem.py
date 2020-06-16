@@ -2,6 +2,9 @@
 https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
 Input:  set[] = {3, 34, 4, 12, 5, 2}, sum = 9
 Output:  True  //There is a subset (4, 5) with sum 9.
+
+Related
+https://www.techiedelight.com/partition-problem/
 """
 ### Naive approach
 # def counter(fun):

@@ -3,6 +3,7 @@
 
 ### Todo
 
+- [ ] DP - Largest sum of consecutive numbers
 - [ ] Leetcode - 721 - Accounts Merge  
 - [ ] DP: 8.14 Multiply  
 - [ ] CTCI 10.7 Giga  
@@ -63,4 +64,3 @@
 - [x] Java compare  
 - [x] Python: append all in a list: list.copy | list.extend  
 - [x] Java Priority Queue  
-

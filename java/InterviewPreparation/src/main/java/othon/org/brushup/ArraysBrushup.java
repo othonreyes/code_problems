@@ -12,6 +12,6 @@ public class ArraysBrushup {
 
         int[][] mem = new int[26][20];
 
-
+        int sum = Arrays.stream(alp).sum();
     }
 }

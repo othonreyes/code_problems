@@ -27,5 +27,9 @@ public class Chars {
         } else {
             log.info("{} - {}", (int)s2.charAt(x), (int)'1');
         }
+
+        // converstion from int to char
+        char z  = Character.forDigit(5 + 1, 10);
+        log.info("", z);
     }
 }

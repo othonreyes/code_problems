@@ -24,11 +24,14 @@ public class Deserializer {
             return null;
         }
         input = input.substring(1, input.length()-1);
-        int i =0;
         List<int[]> result  = new ArrayList<>();
+        int i =0;
+        int start = 0;
         while (i<input.length()) {
+            start = input.indexOf("[");
             i = input.indexOf("]");
-            result.add(toIntArray(input.substring(0,i+1)));
+
+            result.add(toIntArray(input.substring(start,i+1)));
             if (i+2 < input.length())
                 input = input.substring(i+2);
             else

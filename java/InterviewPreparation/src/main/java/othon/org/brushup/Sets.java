@@ -2,7 +2,9 @@ package othon.org.brushup;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -36,5 +38,14 @@ public class Sets {
         set3.add(nums);
         set3.remove(nums);
         set3.contains(nums);
+//        set3.add
+
+        // Set to list
+        Set<Integer> sourceSet = new HashSet<>();
+        sourceSet.add(5);
+        List<Integer> targetList = new ArrayList<>(sourceSet);
+
+        // clone a set
+        new HashSet<Integer>(set);
     }
 }

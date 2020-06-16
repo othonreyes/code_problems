@@ -10,6 +10,8 @@ V = [60,100,120]
 W = [10,20,30]
 Weight = 50
 Output  = 220
+
+https://www.techiedelight.com/0-1-knapsack-problem/
 """
 def knapsack(V,W,Weight,n):
   if n < 0 or Weight == 0:
