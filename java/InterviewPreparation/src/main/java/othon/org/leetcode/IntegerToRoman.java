@@ -17,7 +17,6 @@ public class IntegerToRoman {
         Solution s = new Solution();
         log.info("{}", s.intToRoman(54) );
         log.info("{}", s.intToRoman(58) );
-
     }
 
     static class Solution {

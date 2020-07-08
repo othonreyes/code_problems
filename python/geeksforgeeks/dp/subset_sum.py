@@ -27,7 +27,7 @@ def subset_sum_2(items, target, n):
 def subset_sum_td(items, target, n, mem):
   """
   The key was to have target as the size of the array instead of the index.
-  That makes sense becaseu the value that we want to reuse is the target
+  That makes sense because the value that we want to reuse is the target
   """
   if target == 0:
     return True

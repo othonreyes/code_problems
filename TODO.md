@@ -1,9 +1,11 @@
 
 # CTCI
 
+
+
 ### Todo
 
-- [ ] DP - Largest sum of consecutive numbers
+- [ ] DP - Largest sum of consecutive numbers  
 - [ ] Leetcode - 721 - Accounts Merge  
 - [ ] DP: 8.14 Multiply  
 - [ ] CTCI 10.7 Giga  
@@ -11,12 +13,8 @@
 - [ ] --------------------------------  
 - [ ] 4.11 ctci  
 - [ ] DP: 8.5 Multiply  
-- [ ] greedy  
-- [ ] divide and conquer  
-- [ ] Topological sorting  
 - [ ] ***************************************************  
 - [ ] Python: Lists, sets, dicts common operations  
-- [ ] DP: Knapsack  
 - [ ] Python: OrderedMAp, Counter, PriorityQueue  
 - [ ] Python: Classes: methods and properties, scope, visibility, static methods  
 - [ ] Python: Polymorphism and inheritance  
@@ -35,6 +33,10 @@
 
 ### Done ✓
 
+- [x] DP: Knapsack  
+- [x] greedy  
+- [x] divide and conquer  
+- [x] Topological sorting  
 - [x] CTCI 10.9 sorted matrix  
 - [x] quicksort  
 - [x] Mergesort  
@@ -64,3 +66,4 @@
 - [x] Java compare  
 - [x] Python: append all in a list: list.copy | list.extend  
 - [x] Java Priority Queue  
+

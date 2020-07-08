@@ -1,4 +1,4 @@
-package othon.org.gfg;
+package othon.org.gfg.divideandconquer;
 //https://www.geeksforgeeks.org/maximum-subarray-sum-using-divide-and-conquer-algorithm/
 public class MaximumSubarraySum {
     public static void main(String[] args) {

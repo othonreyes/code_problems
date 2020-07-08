@@ -1,4 +1,4 @@
-package othon.org.gfg;
+package othon.org.gfg.divideandconquer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

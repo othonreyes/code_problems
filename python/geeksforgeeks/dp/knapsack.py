@@ -30,8 +30,10 @@ def knapsack_td_rec(V,W,Weight,n, mem):
   if mem[Weight]:
     return mem[Weight]
   if W[n-1] > Weight: # Ignore the current n
-    return knapsack_td_rec(V,W,Weight,n - 1, mem)
-  mem[Weight] = max(V[n-1] + knapsack_td_rec(V,W,Weight - W[n-1],n - 1, mem), knapsack_td_rec(V,W,Weight - W[n-1],n - 1, mem))
+    mem[Weight] = knapsack_td_rec(V,W,Weight,n - 1, mem)
+  else:
+    mem[Weight] = max(V[n-1] + knapsack_td_rec(V,W,Weight - W[n-1],n - 1, mem),
+     knapsack_td_rec(V,W,Weight,n - 1, mem))
   return mem[Weight]
 
 def knapsack_bu(V,W,Weight,n):

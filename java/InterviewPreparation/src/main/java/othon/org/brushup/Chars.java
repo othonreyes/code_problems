@@ -31,5 +31,8 @@ public class Chars {
         // converstion from int to char
         char z  = Character.forDigit(5 + 1, 10);
         log.info("", z);
+
+        // convert into to char
+        log.info("{}", (char)('0' + 1));
     }
 }

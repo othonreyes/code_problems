@@ -1,4 +1,4 @@
-package othon.org.leetcode;
+package othon.org.leetcode.medium.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +20,7 @@ public class ThreeSum_15 {
         print(s.threeSumSorting(input));
         System.out.println();
         print(s.threeSum2Pointer(input));
+        print(s.threeSumv2(input));
     }
 
     private static void print(List<List<Integer>> check) {
@@ -94,6 +95,44 @@ public class ThreeSum_15 {
                     }
                 }
 
+            }
+            return new ArrayList<>(results);
+        }
+
+        public List<List<Integer>> threeSumv2(int[] nums) {
+            if (nums.length<3) {
+                return new ArrayList<List<Integer>>();
+            }
+            Set<List<Integer>> results = new HashSet<>();
+            Arrays.sort(nums);
+            int ix = 0;
+            while (ix < nums.length) {
+                int x = nums[ix];
+                int left = 0;
+                int right = nums.length - 1;
+                while (left < right) {
+                    if (left == ix) {
+                        left ++;
+                        continue;
+                    }
+                    if (right == ix) {
+                        right--;
+                        continue;
+                    }
+                    int r = nums[left] + nums[right];
+                    if (-1 * x == r) {
+                        List<Integer> res = new ArrayList<>();
+                        res.add(x);
+                        res.add(nums[left]);
+                        res.add(nums[right]);
+                        results.add(res);
+                    } else if (-1 * x > r) {
+                        left ++;
+                    } else {
+                        right--;
+                    }
+                }
+                ix += 1;
             }
             return new ArrayList<>(results);
         }

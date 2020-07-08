@@ -18,6 +18,7 @@ public class Strings {
 
         // Copy a string buffer
         StringBuffer sb2 = new StringBuffer(sb);
+        sb2.reverse();
 
         //split
         String[] a = "2001:0db8:85a3:0:0:8A2E:0370:7334:".split(":");

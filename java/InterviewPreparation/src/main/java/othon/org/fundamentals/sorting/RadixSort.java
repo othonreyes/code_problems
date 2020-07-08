@@ -1,6 +1,7 @@
 package othon.org.fundamentals.sorting;
 
 import lombok.extern.slf4j.Slf4j;
+import othon.org.utils.SortingUtils;
 
 import java.util.Arrays;
 
@@ -33,8 +34,9 @@ public class RadixSort {
         for (int i = 1; i < count.length; count[i] += count[i++ - 1]);
         int[] output = new int[n];
         for (int i = n - 1; i >= 0 ; i--) {
-            output[count[ (arr[i]/exp) % 10 ] - 1] = arr[i];
-            count[ (arr[i]/exp) % 10 ] -= 1;
+            final int pos = (arr[i] / exp) % 10;
+            output[count[pos] - 1] = arr[i];
+            count[pos] -= 1;
         }
         for (int i = 0; i < n; arr[i] = output[i++]);
     }

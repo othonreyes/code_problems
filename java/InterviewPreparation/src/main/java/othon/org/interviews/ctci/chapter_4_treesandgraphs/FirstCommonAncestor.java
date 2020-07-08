@@ -46,15 +46,21 @@ public class FirstCommonAncestor {
             return new Result(node, true);
         }
         boolean selfHasValue = hasValue(node, v1, v2);
-        if ((leftResult != null || rightResult != null) && selfHasValue) {
-            // i'm the ancestor
-            return new Result(node, true);
-        }
+//        if ((leftResult != null || rightResult != null) && selfHasValue) {
+//            // i'm the ancestor
+//            return new Result(node, true);
+//        }
+//        if (selfHasValue) {
+//            return new Result(node, false);
+//        } else {
+//            return leftResult != null ? leftResult : rightResult;
+//        }
+
         if (selfHasValue) {
-            return new Result(node, false);
-        } else {
-            return leftResult != null ? leftResult : rightResult;
+            // i'm the ancestor
+            return new Result(node, (leftResult != null || rightResult != null));
         }
+        return leftResult != null ? leftResult : rightResult;
     }
 
     static <T> boolean hasValue(TreeNode<T> node, T v1, T v2) {

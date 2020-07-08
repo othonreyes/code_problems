@@ -1,6 +1,7 @@
 package othon.org.fundamentals.sorting;
 
 import lombok.extern.slf4j.Slf4j;
+import othon.org.utils.SortingUtils;
 
 import java.util.Arrays;
 
@@ -14,11 +15,6 @@ public class SelectionSort {
         long startTime = System.nanoTime();
         selectionSort(arr2);
         log.info("selectionSort {}- {}", arr2, System.nanoTime() - startTime);
-
-        arr2 = Arrays.copyOf(arr, arr.length);
-        startTime = System.nanoTime();
-        insertionSort(arr2);
-        log.info("insertionSort {}- {}", arr2, System.nanoTime() - startTime);
 
         arr2 = Arrays.copyOf(arr, arr.length);
         startTime = System.nanoTime();
@@ -58,25 +54,7 @@ public class SelectionSort {
         }
     }
 
-    private static void insertionSort(int arr[]) {
-        int i = 1;
-        while ( i < arr.length) {
-            // if the current element is not ordered
-            if (arr[i]<arr[i-1]) {
-                int j = i;
-                int temp = arr[i];
-                // swap the elements
-                while (j>0 && arr[j]<arr[j-1]) {
-                    temp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = temp;
-                    j -=1;
-                }
-                arr[j] = temp;
-            }
-            i +=1;
-        }
-    }
+
 
     private static void mergeSort(int[] arr) {
         int[] helper = new int[arr.length];

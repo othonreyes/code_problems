@@ -1,4 +1,4 @@
-package othon.org.gfg;
+package othon.org.gfg.divideandconquer;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;

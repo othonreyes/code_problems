@@ -12,5 +12,13 @@ public class BitVectors {
         }
         int k = 35;
         log.info("{}-{}-{}", k, k%32, Integer.toString((k&0x1F),2));
+
+        String T = "abc";
+        int x = ~T.length() & 1;
+        log.info("{}", x);
+
+        for (int i = 0; i < 5; i++) {
+            log.info("{}-{}-{}", i, (i&1), (~i & 1));
+        }
     }
 }

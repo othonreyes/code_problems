@@ -27,66 +27,103 @@ public class CourseScheduleII {
     public static void main(String[] args) {
         Solution s = new Solution();
 //        log.info("", s.findOrder(2,new int[][]{{1,0}}));
-        log.info("", s.findOrder(2,new int[][]{{0,1},{0,2},{1,2}}));
+        log.info("{}", s.findOrder(3,new int[][]{{0,1},{0,2},{1,2}}));
     }
 
     static class Solution {
-        int numCourses;
-        Map<Integer, List<Integer>> dependants;
-        int index;
         public int[] findOrder(int numCourses, int[][] prerequisites) {
-            if (numCourses == 1) {
-                return new int[]{0};
+            Map<Integer, List<Integer>> graph = new HashMap<>();
+            int[] indegree = new int[numCourses];
+            for (int i = 0; i < prerequisites.length; i++) {
+                int des = prerequisites[i][0];
+                int source = prerequisites[i][1];
+                graph.computeIfAbsent(source, k -> new ArrayList<>()).add(des);
+                graph.computeIfAbsent(des, k -> new ArrayList<>());
+                indegree[des] += 1;
             }
-            this.numCourses = numCourses;
-            //Map<Integer, List<Integer>> graph = new HashMap<>();
-            dependants = new HashMap<>();
-            for (int i=0; i<numCourses; i++) {
-                // graph.computeIfAbsent(i, key->new ArrayList<>());
-                dependants.computeIfAbsent(i, key->new ArrayList<>());
-            }
-
-            // build graph
-            for(int[] edge: prerequisites) {
-                //graph.computeIfAbsent(edge[1], key->new ArrayList<>()).add(edge[0]);
-                dependants.get(edge[0]).add(edge[1]);
-            }
-
-            int[] output = new int[numCourses];
-            index = 0;
-            boolean[] visited = new boolean[numCourses];
-
-            for (int i=0; i < numCourses; i++) {
-                boolean valid = dfs(output, i, visited, null);
-                if (!valid) {
-                    return new int[]{};
+            Queue<Integer> q = new ArrayDeque<>();
+            for (int i = 0; i < numCourses; i++) {
+                if (indegree[i] == 0) {
+                    q.offer(i);
                 }
             }
-            return output;
-        }
-        boolean dfs(int[] output, int course, boolean[] visited, boolean[] added) {
-            if (added != null && added[course]) {
-                return false;
-            }
-            if (visited[course]) {
-                return true;
-            }
-            if (added == null) {
-                added = new boolean[numCourses];
-            }
-            visited[course] = true;
-            added[course] = true;
-            for (Integer nextCourse : dependants.getOrDefault(course, Collections.emptyList())) {
-                if (!visited[nextCourse]) {
-                    boolean valid = dfs(output, nextCourse, visited, added);
-                    if (!valid) {
-                        return false;
+            int[] topologicalSort = new int[numCourses];
+            int i = 0;
+            while (!q.isEmpty()) {
+                int node = q.poll();
+                topologicalSort[i++] = node;
+                for (Integer next : graph.getOrDefault(node, Collections.emptyList())) {
+                    indegree[next]-=1;
+                    if (indegree[next]==0) {
+                        q.offer(next);
                     }
                 }
             }
-            output[index++] = course;
-            return true;
+            if (i==numCourses) {
+                return topologicalSort;
+            }
+            return new int[0];
         }
+    }
+
+    /************DOESN'T WORK*/
+//    static class Solution {
+//        int numCourses;
+//        Map<Integer, List<Integer>> dependants;
+//        int index;
+//        public int[] findOrder(int numCourses, int[][] prerequisites) {
+//            if (numCourses == 1) {
+//                return new int[]{0};
+//            }
+//            this.numCourses = numCourses;
+//            //Map<Integer, List<Integer>> graph = new HashMap<>();
+//            dependants = new HashMap<>();
+//            for (int i=0; i<numCourses; i++) {
+//                // graph.computeIfAbsent(i, key->new ArrayList<>());
+//                dependants.computeIfAbsent(i, key->new ArrayList<>());
+//            }
+//
+//            // build graph
+//            for(int[] edge: prerequisites) {
+//                //graph.computeIfAbsent(edge[1], key->new ArrayList<>()).add(edge[0]);
+//                dependants.get(edge[0]).add(edge[1]);
+//            }
+//
+//            int[] output = new int[numCourses];
+//            index = 0;
+//            boolean[] visited = new boolean[numCourses];
+//
+//            for (int i=0; i < numCourses; i++) {
+//                boolean valid = dfs(output, i, visited, null);
+//                if (!valid) {
+//                    return new int[]{};
+//                }
+//            }
+//            return output;
+//        }
+//        boolean dfs(int[] output, int course, boolean[] visited, boolean[] added) {
+//            if (added != null && added[course]) {
+//                return false;
+//            }
+//            if (visited[course]) {
+//                return true;
+//            }
+//            if (added == null) {
+//                added = new boolean[numCourses];
+//            }
+//            visited[course] = true;
+//            added[course] = true;
+//            for (Integer nextCourse : dependants.getOrDefault(course, Collections.emptyList())) {
+//                if (!visited[nextCourse]) {
+//                    boolean valid = dfs(output, nextCourse, visited, added);
+//                    if (!valid) {
+//                        return false;
+//                    }
+//                }
+//            }
+//            output[index++] = course;
+//            return true;
+//        }
 
 //     public int[] findOrder(int numCourses, int[][] prerequisites) {
 //         if (numCourses == 1) {
@@ -133,5 +170,5 @@ public class CourseScheduleII {
 //         }
 //         return output;
 //     }
-    }
+//    }
 }
