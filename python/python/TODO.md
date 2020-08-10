@@ -2,8 +2,9 @@
 
 
 ### Basics
-- [ ] modules
-- [ ] Lists, sets, dicts common operations
+- [X] modules and pacakges
+- [X] make file
+- [ ] Lists, sets, dicts common operations (enumerate and sequence)
 - [ ] lambdas, sorting
 - [ ] Classes: methods and properties, scope, visibility, static methods
 - [ ] Polymorphism and inheritance

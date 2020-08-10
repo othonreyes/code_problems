@@ -83,3 +83,20 @@ for i in range(1, n):
 
 print(r)
 
+# using enumerate
+animals = ['dog', 'cat', 'chicken', 'duck']
+
+for (i,j) in enumerate(animals):
+    print(i,",", j)
+
+
+# using a generator
+
+import itertools
+
+def duplicator(n:int):
+    for i in range(n+1):
+        yield i * 2
+
+for i in duplicator(10):
+    print("{}".format(i))

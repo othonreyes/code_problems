@@ -1,0 +1,2 @@
+def wavread():
+    pass

@@ -19,5 +19,7 @@ public class Lists {
         LinkedList<Integer> nodes = new LinkedList<>();
         nodes.addLast(1);
         nodes.removeLast();
+        nodes.getLast();
+        nodes.getFirst();
     }
 }
