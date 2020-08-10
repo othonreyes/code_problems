@@ -1,32 +1,27 @@
-
 # CTCI
-
-
-
 ### Todo
-
 - [ ] DP - Largest sum of consecutive numbers  
 - [ ] Leetcode - 721 - Accounts Merge  
 - [ ] DP: 8.14 Multiply  
 - [ ] CTCI 10.7 Giga  
-- [ ] CTCI 10.10 Rank stream  
+- [ ] CTCI 10.10 Rank stream
 - [ ] --------------------------------  
 - [ ] 4.11 ctci  
 - [ ] DP: 8.5 Multiply  
 - [ ] ***************************************************  
-- [ ] Python: Lists, sets, dicts common operations  
-- [ ] Python: OrderedMAp, Counter, PriorityQueue  
 - [ ] Python: Classes: methods and properties, scope, visibility, static methods  
 - [ ] Python: Polymorphism and inheritance  
+- [ ] Python: testing, mocking and stub
 - [ ] Python: Error handling  
-- [ ] Python: dates and times  
+- [ ] Python: dates and times
+- [ ] Python: i/o  
 - [ ] Python: generics  
 - [ ] Python: comprehension  
 - [ ] Python: function of other functions  
-- [ ] Python: i/o  
 - [ ] Python: multithreading  
-- [ ] Python: testing  
-- [ ] Python. Optimal way to remove an element from a list and then add it back  
+- [ ] Python. Optimal way to remove an element from a list and then add it back
+--------------------------------
+- [ ] App to port over the OneNote docs to notion.so 
 
 ### In Progress
 
@@ -66,4 +61,8 @@
 - [x] Java compare  
 - [x] Python: append all in a list: list.copy | list.extend  
 - [x] Java Priority Queue  
-
+- [X] Python: modules
+- [X] Python: make file
+- [X] Python: Lists, sets, dicts common operations (enumerate, sequence)
+- [X] Python: send http requests
+- [X] Python: OrderedMAp, Counter, PriorityQueue
