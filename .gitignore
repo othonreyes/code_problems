@@ -143,13 +143,14 @@ java/InterviewPreparation/.idea/workspace.xml
 .idea/
 .gradle
 
-java/InterviewPreparation/.classpath
-java/InterviewPreparation/.project
-java/InterviewPreparation/.settings/
-java/InterviewPreparation/bin/
-java/code_problems.iml
-/java/InterviewPreparation/out/
-/java/InterviewPreparation/.idea/
-/java/InterviewPreparation/.gradle/
+**/.classpath
+**/.project
+**/.settings/
+**/bin/
+**/*.iml
+**/out/
+**/.idea/
+**/.gradle/
 /java/InterviewPreparation/gradle/
-/java/InterviewPreparation/build/
+**/build/
+**/Scripts*
