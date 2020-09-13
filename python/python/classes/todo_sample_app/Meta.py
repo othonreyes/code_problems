@@ -3,8 +3,63 @@ from datetime import datetime
 from enum import Enum
 import logging
 import os
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+
+# logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+# log = logging.getLogger(__name__)
+
+
+# Native Python 3 solutions -> doesn't work well with windows.
+# https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output
+# class CustomFormatter(logging.Formatter):
+#     """Logging Formatter to add colors and count warning / errors"""
+#
+#     grey = "\x1b[38;21m"
+#     yellow = "\x1b[33;21m"
+#     red = "\x1b[31;21m"
+#     bold_red = "\x1b[31;1m"
+#     reset = "\x1b[0m"
+#     format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"
+#
+#     FORMATS = {
+#         logging.DEBUG: grey + format + reset,
+#         logging.INFO: grey + format + reset,
+#         logging.WARNING: yellow + format + reset,
+#         logging.ERROR: red + format + reset,
+#         logging.CRITICAL: bold_red + format + reset
+#     }
+#
+#     def format(self, record):
+#         log_fmt = self.FORMATS.get(record.levelno)
+#         # print(fr"{record.levelno} - {log_fmt}\n")
+#         print(repr(log_fmt))
+#         formatter = logging.Formatter(log_fmt)
+#         return formatter.format(record)
+#
+# create logger with 'spam_application'
+# LOG_LEVEL = os.environ.get("LOGLEVEL", logging.DEBUG)
+# LOG_LEVEL = logging.DEBUG
+# log = logging.getLogger(__name__)
+# log.setLevel(LOG_LEVEL)
+#
+# # create console handler with a higher log level
+# colored_handler = logging.StreamHandler()
+# colored_handler.setLevel(LOG_LEVEL)
+# colored_handler.setFormatter(CustomFormatter())
+#
+# log.addHandler(colored_handler)
+
+# Native Python 3 solutions -> using color log
+LOG_LEVEL = os.environ.get("LOGLEVEL", logging.DEBUG)
+LOGFORMAT = "  %(log_color)s%(levelname)-8s%(reset)s | %(log_color)s%(message)s%(reset)s"
+from colorlog import ColoredFormatter
+logging.root.setLevel(LOG_LEVEL)
+formatter = ColoredFormatter(LOGFORMAT)
+stream = logging.StreamHandler()
+stream.setLevel(LOG_LEVEL)
+stream.setFormatter(formatter)
 log = logging.getLogger(__name__)
+log.setLevel(LOG_LEVEL)
+log.addHandler(stream)
 
 class Type(Enum):
     Project = 1
@@ -14,7 +69,7 @@ class Type(Enum):
 
 class InvalidValueError(Exception):
 
-    def __init__(self, message = "We are fucked"):
+    def __init__(self, message="We are fucked"):
         self.message = message
 
 
@@ -34,7 +89,7 @@ class Meta:
     def get_project_count():
         return Meta.total_projects
 
-    # override string to print the name of the project and the creation date.
+    # override string to log.debug the name of the project and the creation date.
     def __str__(self):
         return f"{self.name} -> {self._creation_date.strftime('%b %d %Y')}"
 
@@ -49,7 +104,7 @@ class Meta:
         return self._last_update_date
 
     @last_update_date.setter
-    def last_update_date(self, value:datetime):
+    def last_update_date(self, value: datetime):
         if value is None:
             raise InvalidValueError("creation_date can't be null")
         self._last_update_date = value
@@ -78,22 +133,26 @@ class Task(Meta):
         new_task = Task(1, self)
         self.children.append(new_task)
 
+
 import abc
+
+
 class Storage(abc.ABC):
     def __init__(self):
         pass
 
     @abc.abstractmethod
-    def insert(self, task:Task):
+    def insert(self, task: Task):
         pass
 
     @abc.abstractmethod
-    def find(self, name:string):
+    def find(self, name: string):
         pass
 
     @abc.abstractmethod
-    def update(self, task:Task):
+    def update(self, task: Task):
         pass
+
 
 class Notifications(abc.ABC):
     def __init__(self):
@@ -102,6 +161,7 @@ class Notifications(abc.ABC):
     @abc.abstractmethod
     def notify(self, msg: string, *_, **kwargs):
         pass
+
 
 class InMemoryNotification(Notifications):
     def __init__(self):
@@ -140,12 +200,12 @@ class InMemoryStorage(Storage):
             assert task.name is not None
             self.storage[task.name] = task
         except ZeroDivisionError as error:
-            print(f"This shouldn't be possible {error}")
+            log.debug(f"This shouldn't be possible {error}")
             raise
         else:
-            print(f"Sending a notification to another system that everything went well")
+            log.debug(f"Sending a notification to another system that everything went well")
         finally:
-            print(f"Finishing processing task {task}")
+            log.debug(f"Finishing processing task {task}")
 
     def find(self, name: string):
         return None
@@ -153,13 +213,14 @@ class InMemoryStorage(Storage):
     def update(self, task: Task):
         pass
 
+
 class TasksDao():
     def __init__(self, storage):
         self.storage = storage
 
     def saveTask(self, task: Task):
         result = self.storage.find(task.name)
-        print(f"\nResult: {result}")
+        log.debug(f"\nResult: {result}")
         if result is None:
             self.storage.insert(task)
         else:
@@ -167,13 +228,7 @@ class TasksDao():
         return "Saul goodman"
 
 
-
-
-
-
-
 if __name__ == '__main__':
     travel = Project("Travel")
-    print(travel)
+    log.debug(travel)
     # book_tickets = Task(1)
-

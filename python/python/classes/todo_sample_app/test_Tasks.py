@@ -2,7 +2,8 @@ import string
 
 import pytest
 
-from python.python.classes.todo_sample_app.Meta import Project, TasksDao, Storage, Task
+from python.python.classes.todo_sample_app.Meta import Project, TasksDao, Storage, Task, InMemoryStorage
+
 
 @pytest.fixture
 def supply_project() -> Project:

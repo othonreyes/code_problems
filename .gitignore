@@ -153,4 +153,5 @@ java/InterviewPreparation/.idea/workspace.xml
 **/.gradle/
 /java/InterviewPreparation/gradle/
 **/build/
-**/Scripts*
+**/Scripts/*
+**/venv/

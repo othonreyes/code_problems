@@ -11,10 +11,9 @@
 - [ ] ***************************************************  
 - [ ] Python: Exception handling.
     - [X] enable logs
-    - [ ] Add colors to logs
-    - [ ] fix the terminal in pycharm
+    - [X] Add colors to logs
+    - [X] fix the terminal in pycharm
     - [ ] Enable code coverage in pycharm
-    - [ ] Enable code coverage in terminal
     - [ ] Make sure that the code is covering all paths
 - [ ] Python: dates and times
     - [ ] Python: create a method to calculate the delta between object created and updated.
