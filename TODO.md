@@ -9,15 +9,20 @@
 - [ ] 4.11 ctci  
 - [ ] DP: 8.5 Multiply  
 - [ ] ***************************************************  
-- [ ] Python: Classes: methods and properties, scope, visibility, static methods  
-- [ ] Python: Polymorphism and inheritance  
-- [ ] Python: testing, mocking and stub
-- [ ] Python: Error handling  
+- [ ] Python: Exception handling.
+    - [X] enable logs
+    - [ ] Add colors to logs
+    - [ ] fix the terminal in pycharm
+    - [ ] Enable code coverage in pycharm
+    - [ ] Enable code coverage in terminal
+    - [ ] Make sure that the code is covering all paths
 - [ ] Python: dates and times
-- [ ] Python: i/o  
+    - [ ] Python: create a method to calculate the delta between object created and updated.
+- [ ] Python: __call__
+- [ ] Python: Polymorphism  
+- [ ] Python: comprehension
 - [ ] Python: generics  
-- [ ] Python: comprehension  
-- [ ] Python: function of other functions  
+- [ ] Python: i/o  
 - [ ] Python: multithreading  
 - [ ] Python. Optimal way to remove an element from a list and then add it back
 --------------------------------
@@ -66,3 +71,10 @@
 - [X] Python: Lists, sets, dicts common operations (enumerate, sequence)
 - [X] Python: send http requests
 - [X] Python: OrderedMAp, Counter, PriorityQueue
+- [X] Python: function of other functions
+- [X] Python: Classes: methods and properties, scope, visibility, static methods
+- [X] Python: Unit tests
+- [X] Python: Interfaces
+- [X] Python: inheritance
+- [X] Python: Unit mocking
+- [X] Python: setup pycharm to recognize tde virtual envs
