@@ -3,7 +3,9 @@ import string
 import pytest
 
 from python.python.classes.todo_sample_app.Meta import Project, TasksDao, Storage, Task, InMemoryStorage
+# from todo_sample_app.Meta import Project, TasksDao, Storage, Task, InMemoryStorage
 
+path = 'python.python.classes.'
 
 @pytest.fixture
 def supply_project() -> Project:
@@ -35,7 +37,7 @@ def test_dao2(mocker):
     """
     Doens't work
     """
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     storage.find.return_value = None # The problem was that the logic in the task was wrong
     spy = mocker.spy(storage, 'insert')
 
@@ -50,7 +52,7 @@ def test_dao_find_returns_None_update_never_called(mocker):
     """
     This works!
     """
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     mocker.patch.object(storage, 'find')
     storage.find.return_value = None
 
@@ -66,7 +68,8 @@ def test_dao_find_returns_None_update_never_called(mocker):
     spy_update.assert_not_called()
 
 def test_dao(mocker):
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    # storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     # ~doesn't work~/ Works! The problem was on the logic of the Task test
     find_method = mocker.patch.object(storage, 'find')
     find_method.return_value = None
@@ -101,7 +104,8 @@ def test_in_memory(supply_project):
 
 
 def test_failures_Exception(mocker):
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    # storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     mocker.patch.object(storage, 'find')
     storage.find.side_effect = Exception('Boom!') # = ZeroDivisionError('buu')
 
@@ -114,7 +118,8 @@ def test_failures_Exception(mocker):
     print(f"\n{str(e.value)}")
 
 def test_failures_Exception_simplified(mocker):
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    # storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     storage.find.side_effect = Exception('Boom!') # = ZeroDivisionError('buu')
 
     task = Task("Train with the kaiosama", 2)
@@ -130,7 +135,8 @@ def test_failures_Exception_simplified(mocker):
     """
     Additionally check for the exception message
     """
-    storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    # storage = mocker.patch('python.python.classes.todo_sample_app.Meta.Storage')
+    storage = mocker.patch(path + 'todo_sample_app.Meta.Storage')
     storage.find.side_effect = ArithmeticError('Boom!') # = ArithmeticError('buu')
 
     task = Task("Train with the kaiosama", 2)

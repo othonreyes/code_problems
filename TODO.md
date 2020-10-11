@@ -13,8 +13,9 @@
     - [X] enable logs
     - [X] Add colors to logs
     - [X] fix the terminal in pycharm
-    - [ ] Enable code coverage in pycharm
-    - [ ] Make sure that the code is covering all paths
+    - [X] Enable code coverage in pycharm
+    - [X] Enable codo coverage in the terminal
+    - [ ] Make sure that the code is covering all paths of the exception
 - [ ] Python: dates and times
     - [ ] Python: create a method to calculate the delta between object created and updated.
 - [ ] Python: __call__

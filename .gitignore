@@ -155,3 +155,4 @@ java/InterviewPreparation/.idea/workspace.xml
 **/build/
 **/Scripts/*
 **/venv/
+**/htmlcov/

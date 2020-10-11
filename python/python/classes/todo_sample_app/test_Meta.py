@@ -2,6 +2,7 @@ import pytest
 
 # How to neable logs for tests
 from python.python.classes.todo_sample_app.Meta import Project, InMemoryNotification
+# from todo_sample_app.Meta import Project, InMemoryNotification
 import logging
 
 LOGGER = logging.getLogger(__name__)
