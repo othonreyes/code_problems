@@ -1,0 +1,10 @@
+[2021-08-15T22:38:35.625453Z][Thread-0][0] Some string
+[2021-08-15T22:38:36.650601Z][Thread-0][1] Some string
+[2021-08-15T22:38:37.653610Z][Thread-0][2] Some string
+[2021-08-15T22:38:38.657817Z][Thread-0][3] Some string
+[2021-08-15T22:38:39.658938Z][Thread-0][4] Some string
+[2021-08-15T22:38:40.661466Z][Thread-0][5] Some string
+[2021-08-15T22:38:41.664223Z][Thread-0][6] Some string
+[2021-08-15T22:38:42.668851Z][Thread-0][7] Some string
+[2021-08-15T22:38:43.673327Z][Thread-0][8] Some string
+[2021-08-15T22:38:44.678636Z][Thread-0][9] Some string
